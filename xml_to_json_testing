@@ -1,0 +1,16 @@
+import xmltodict
+import json
+
+# Open the XML file and read it into a string
+with open('report.xml', 'r') as xmlfile:
+    xmlstring = xmlfile.read()
+
+# Convert the XML string to a dictionary using xmltodict
+xmldict = xmltodict.parse(xmlstring)
+
+# Convert the dictionary to a JSON string using the json module
+jsonstring = json.dumps(xmldict)
+
+# Write the JSON string to a file
+with open('myjsonfile.json', 'w') as jsonfile:
+    jsonfile.write(jsonstring)
